@@ -41,17 +41,21 @@ function App() {
   
   });
   setLists(updatedItems)
-   
+   }
 
- }
-
+   function handleRemoveItem(id){
+    const updatedItem = lists.filter(item=> item.id!==id)
+    setLists(updatedItem)
+   }
+   const totalWorks= lists.length;
+   const totalDone= lists.filter(item=>item.done).length
 
   return (
     <div className='container pt-2'>
       <ToDoListNav/>
-      <ToDoListForm handleOnChange={handleOnChange} handleOnSubmit={handleOnSubmit} item={listsInput}/>
-      <ToDoList items={lists} handleOnToggle={toggleDone}/>
-      <ToDoListFooter/>
+      <ToDoListForm handleOnChange={handleOnChange} handleOnSubmit={handleOnSubmit} item={listsInput} />
+      <ToDoList items={lists} handleOnToggle={toggleDone} handleRemoveItem={handleRemoveItem}/>
+      <ToDoListFooter totalDone={totalDone} totalWorks={totalWorks}/>
     </div>
     
   )

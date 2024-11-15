@@ -1,4 +1,4 @@
-function ToDoList({items,handleOnToggle}){
+function ToDoList({items,handleOnToggle,handleRemoveItem}){
     return(
     
         <div>
@@ -24,7 +24,7 @@ function ToDoList({items,handleOnToggle}){
                
                 
               
-                <button className="btn btn-danger ms-3"> <i style={{cursor:"pointer"}} className="bi bi-trash"></i></button> 
+                <button onClick={()=>handleRemoveItem(item.id)} className="btn btn-danger ms-3"> <i style={{cursor:"pointer"}} className="bi bi-trash"></i></button> 
            
             </div>
           
